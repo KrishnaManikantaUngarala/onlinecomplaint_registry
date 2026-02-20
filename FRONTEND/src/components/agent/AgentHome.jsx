@@ -42,10 +42,10 @@ export default function AgentHome({ user, setUser }) {
     <div className="d-flex flex-column min-vh-100 bg-page">
       <nav className="navbar nav-dark">
         <div className="container-fluid">
-          <span className="text-white me-3">Hi Agent {user?.name}</span>
+          <span className="me-3" style={{color: 'var(--text)', fontWeight: 600}}>Hi Agent {user?.name}</span>
           <div className="d-flex align-items-center">
-            <span className="text-white me-3">View Complaints</span>
-            <button className="btn btn-danger btn-sm" onClick={handleLogout}>Log out</button>
+            <span className="me-3" style={{color: 'var(--text)'}}>View Complaints</span>
+            <button className="btn-action btn-danger-action" onClick={handleLogout}>Log out</button>
           </div>
         </div>
       </nav>
@@ -70,10 +70,10 @@ export default function AgentHome({ user, setUser }) {
                     <p className="mb-1"><strong>Comment:</strong> {comp.comment}</p>
                     <p className="mb-2"><strong>Status:</strong> {comp.status}</p>
                     <div className="d-flex gap-2 mb-2">
-                      <input className="form-control form-control-sm" placeholder="New status" value={isSelected ? statusVal : ''} onChange={e => setStatusVal(e.target.value)} onFocus={() => setSelectedId(comp._id)} />
-                      <button className="btn btn-primary btn-sm" onClick={() => updateStatus(comp._id)}>Status Change</button>
+                      <input className="form-control input-clean" placeholder="New status" value={isSelected ? statusVal : ''} onChange={e => setStatusVal(e.target.value)} onFocus={() => setSelectedId(comp._id)} />
+                      <button className="btn-action btn-primary-action" onClick={() => updateStatus(comp._id)}>Status Change</button>
                     </div>
-                    <button className="btn btn-primary btn-sm me-2" onClick={() => { setSelectedId(comp._id); setStatusVal(''); }}>Message</button>
+                    <button className="btn-action btn-secondary-action me-2" onClick={() => { setSelectedId(comp._id); setStatusVal(''); }}>Message</button>
                     {isSelected && (
                       <div className="mt-3">
                         <ChatWindow complaintId={comp._id} user={user} />

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login({ setUser }) {
   const [email, setEmail] = useState('');
@@ -26,42 +26,42 @@ export default function Login({ setUser }) {
     <div className="d-flex flex-column min-vh-100 bg-page">
       <nav className="navbar nav-dark">
         <div className="container-fluid">
-          <span className="navbar-brand text-white">ComplaintCare</span>
+          <span className="navbar-brand">ComplaintCare</span>
           <div>
-            <Link to="/" className="text-white text-decoration-none me-3">Home</Link>
-            <Link to="/signup" className="text-white text-decoration-none me-3">SignUp</Link>
-            <Link to="/login" className="text-white text-decoration-none">Login</Link>
+            <Link to="/" className="nav-link-clean me-3">Home</Link>
+            <Link to="/signup" className="nav-link-clean me-3">SignUp</Link>
+            <Link to="/login" className="nav-link-clean">Login</Link>
           </div>
         </div>
       </nav>
       <div className="flex-grow-1 d-flex justify-content-center align-items-center py-5">
         <div className="card-form p-5 shadow" style={{ width: '100%', maxWidth: 450 }}>
-          <h2 className="text-white mb-2">Login For Registering the Complaint</h2>
-          <p className="text-white-50 small">Please enter your Credentials!</p>
+          <h2 className="mb-2" style={{color: 'var(--text)'}}>Login For Registering the Complaint</h2>
+          <p className="small" style={{color: 'var(--text-muted)'}}>Please enter your Credentials!</p>
           <form onSubmit={handleLogin}>
             <input
               type="email"
-              className="form-control mb-2 bg-white"
+              className="form-control mb-2 input-clean"
               placeholder="Email"
               value={email}
               onChange={e => setEmail(e.target.value)}
               required
             />
-            <span className="label-below d-block text-white-50">Email</span>
+            <span className="label-below d-block"></span>
             <input
               type="password"
-              className="form-control mb-2 mt-2 bg-white"
+              className="form-control mb-2 mt-2 input-clean"
               placeholder="Password"
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
             />
-            <span className="label-below d-block text-white-50">Password</span>
+            <span className="label-below d-block"></span>
             <div className="text-center mt-4">
-              <button type="submit" className="btn btn-outline-light px-4">Login</button>
+              <button type="submit" className="btn-action btn-primary-action px-5">Login</button>
             </div>
           </form>
-          <p className="text-white-50 mt-4 mb-0">Don't have an account? <Link to="/signup" className="text-primary">SignUp</Link></p>
+          <p className="mt-4 mb-0" style={{color: 'var(--text-muted)'}}>Don't have an account? <Link to="/signup" style={{color: 'var(--brand)'}}>SignUp</Link></p>
         </div>
       </div>
       <FooterC />

@@ -27,11 +27,11 @@ export default function Status({ user, setUser }) {
     <div className="d-flex flex-column min-vh-100 bg-page">
       <nav className="navbar nav-dark">
         <div className="container-fluid">
-          <span className="text-white me-3">Hi, {user?.name}</span>
+          <span className="me-3" style={{color: 'var(--text)', fontWeight: 600}}>Hi, {user?.name}</span>
           <div className="d-flex align-items-center">
-            <Link to="/complaint-register" className="text-white text-decoration-none me-3">Complaint Register</Link>
-            <Link to="/status" className="text-white text-decoration-none me-3">Status</Link>
-            <button className="btn btn-danger btn-sm" onClick={handleLogout}>LogOut</button>
+            <Link to="/complaint-register" className="nav-link-clean me-3">Complaint Register</Link>
+            <Link to="/status" className="nav-link-clean me-3">Status</Link>
+            <button className="btn-action btn-danger-action" onClick={handleLogout}>LogOut</button>
           </div>
         </div>
       </nav>
@@ -44,7 +44,7 @@ export default function Status({ user, setUser }) {
               <p className="mb-1"><strong>Name:</strong> {c.name} | <strong>Status:</strong> {c.status}</p>
               <p className="mb-1"><strong>Address:</strong> {c.address}, {c.city}, {c.state} - {c.pincode}</p>
               <p className="mb-2"><strong>Comment:</strong> {c.comment}</p>
-              <button className="btn btn-sm btn-outline-primary" onClick={() => setSelectedId(selectedId === c._id ? null : c._id)}>Chat with Agent</button>
+              <button className="btn-action btn-secondary-action" onClick={() => setSelectedId(selectedId === c._id ? null : c._id)}>Chat with Agent</button>
               {selectedId === c._id && <div className="mt-3"><ChatWindow complaintId={c._id} user={user} /></div>}
             </div>
           </div>

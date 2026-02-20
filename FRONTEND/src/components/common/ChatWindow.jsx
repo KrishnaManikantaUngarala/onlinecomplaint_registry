@@ -34,8 +34,8 @@ export default function ChatWindow({ complaintId, user }) {
         ))}
       </div>
       <form onSubmit={send} className="d-flex gap-2">
-        <input className="form-control" placeholder="Type your message..." value={text} onChange={e => setText(e.target.value)} />
-        <button type="submit" className="btn btn-success">Send</button>
+        <input className="form-control input-clean" placeholder="Type your message..." value={text} onChange={e => setText(e.target.value)} />
+        <button type="submit" className="btn-action btn-success-action">Send</button>
       </form>
     </div>
   );

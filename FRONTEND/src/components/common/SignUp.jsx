@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SignUp({ setUser }) {
   const [form, setForm] = useState({ name: '', email: '', password: '', phone: '', userType: 'customer' });
@@ -35,37 +35,33 @@ export default function SignUp({ setUser }) {
     <div className="d-flex flex-column min-vh-100 bg-page">
       <nav className="navbar nav-dark">
         <div className="container-fluid">
-          <span className="navbar-brand text-white">ComplaintCare</span>
+          <span className="navbar-brand">ComplaintCare</span>
           <div>
-            <Link to="/" className="text-white text-decoration-none me-3">Home</Link>
-            <Link to="/signup" className="text-white text-decoration-none me-3">SignUp</Link>
-            <Link to="/login" className="text-white text-decoration-none">Login</Link>
+            <Link to="/" className="nav-link-clean me-3">Home</Link>
+            <Link to="/signup" className="nav-link-clean me-3">SignUp</Link>
+            <Link to="/login" className="nav-link-clean">Login</Link>
           </div>
         </div>
       </nav>
       <div className="flex-grow-1 d-flex justify-content-center align-items-center py-5">
         <div className="card-form p-5 shadow" style={{ width: '100%', maxWidth: 450 }}>
-          <h2 className="text-white mb-2">SignUp For Registering the Complaint</h2>
-          <p className="text-white-50 small">Please enter your Details</p>
+          <h2 className="mb-2" style={{color: 'var(--text)'}}>SignUp For Registering the Complaint</h2>
+          <p className="small" style={{color: 'var(--text-muted)'}}>Please enter your Details</p>
           {error && <div className="alert alert-warning py-2 small">{error}</div>}
           <form onSubmit={handleSubmit}>
-            <input className="form-control mb-2 bg-white" placeholder="Full Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
-            <input type="email" className="form-control mb-2 bg-white" placeholder="Email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
-            <input type="password" className="form-control mb-2 bg-white" placeholder="Password" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required />
-            <input className="form-control mb-2 bg-white" placeholder="Mobile No." value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} required />
-            <select className="form-select bg-white mb-2" value={form.userType} onChange={e => setForm({ ...form, userType: e.target.value })}>
-              <option value="customer">Customer</option>
-              <option value="agent">Agent</option>
-              <option value="admin">Admin</option>
-            </select>
-            <span className="label-below d-block text-white-50 small">Select User Type</span>
+            <input className="form-control mb-2 input-clean" placeholder="Full Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
+            <input type="email" className="form-control mb-2 input-clean" placeholder="Email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
+            <input type="password" className="form-control mb-2 input-clean" placeholder="Password" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required />
+            <input className="form-control mb-2 input-clean" placeholder="Mobile No." value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} required />
+      
+            <span className="label-below d-block small"></span>
             <div className="text-center mt-4">
-              <button type="submit" className="btn btn-dark border border-white px-4" disabled={loading}>
+              <button type="submit" className="btn-action btn-primary-action px-5" disabled={loading}>
                 {loading ? 'Registering...' : 'Register'}
               </button>
             </div>
           </form>
-          <p className="text-white-50 mt-4 mb-0">Had an account? <Link to="/login" className="text-primary">Login</Link></p>
+          <p className="mt-4 mb-0" style={{color: 'var(--text-muted)'}}>Had an account? <Link to="/login" style={{color: 'var(--brand)'}}>Login</Link></p>
         </div>
       </div>
       <FooterC />

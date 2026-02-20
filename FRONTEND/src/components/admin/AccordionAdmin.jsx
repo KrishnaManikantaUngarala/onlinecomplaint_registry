@@ -82,15 +82,15 @@ export default function AccordionAdmin({ user }) {
                   <div className="col-md-4 d-grid">
                     <button
                       type="button"
-                      className="btn btn-primary btn-sm"
+                      className="btn-action btn-primary-action"
                       onClick={() => updateStatus(c._id)}
                     >
                       Update Status
                     </button>
                   </div>
                 </div>
-                <div className="dropdown">
-                  <button className="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" disabled={assigning === c._id}>
+                <div className="dropdown mt-2">
+                  <button className="btn-action btn-warning-action dropdown-toggle" type="button" data-bs-toggle="dropdown" disabled={assigning === c._id}>
                     {assigning === c._id ? 'Assigning...' : 'Assign'}
                   </button>
                   <ul className="dropdown-menu">
